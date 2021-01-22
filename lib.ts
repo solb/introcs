@@ -49,6 +49,8 @@ if(!globalThis.window) {
 	globalThis.window = globalThat;
 }
 
+export * as dictionary from './dictionary';
+
 export let window: {
 	alert(_?: {}): void,
 	confirm(_?: string, fallback?: boolean, custom?: string): boolean,
