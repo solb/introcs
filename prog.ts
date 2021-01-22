@@ -1,5 +1,14 @@
-import { confirm } from './lib';
+import { confirm, dictionary } from './lib';
 
-do
-	alert('Hello ' + prompt('What is your name?'));
-while(confirm('Again?', false));
+let seen = new dictionary.Set();
+do {
+	let name = prompt('What is your name?');
+	let greeting = 'Hello ' + name + '!';
+	if(name) {
+		if(name in seen)
+			greeting += ' I\'ve seen you before.';
+		else
+			seen[name] = true;
+	}
+	alert(greeting);
+} while(confirm('Again?', false));
