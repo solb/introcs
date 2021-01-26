@@ -49,6 +49,7 @@ if(!globalThis.window) {
 	globalThis.window = globalThat;
 }
 
+export { constructor } from './constructor';
 export * as dictionary from './dictionary';
 
 export let window: {
