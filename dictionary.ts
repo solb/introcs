@@ -1,14 +1,14 @@
+import { constructor } from './constructor';
+
 export type Map<T> = {[_: string]: T};
-
-export type Set = Map<true>;
-
-export let Map = function<T>(this: Map<T>, iterable?: Iterable<[string, T]>) {
+export let Map = constructor(function<T>(this: Map<T>, iterable?: Iterable<[string, T]>) {
 	if(iterable)
 		for(let each of iterable)
 			this[each[0]] = each[1];
 	return new Proxy(this, dictionary);
-} as Function as new<T>(_?: Iterable<[string, T]>) => Map<T>;
+});
 
+export type Set = Map<true>;
 export let Set: new() => Set = Map;
 
 let dictionary = {
